@@ -1,0 +1,30 @@
+{
+  "caso": "Envase plástico vacío de plaguicida en un hogar rural",
+  "rol": "conflicto",
+  "hechos": {
+    "material": {
+      "valor": "plastico",
+      "cf": 1.0,
+      "origen": "Identificado por el tipo de envase y por el símbolo de reciclaje impreso en la base.",
+      "clase": "inicial"
+    },
+    "esta_seco": {
+      "valor": true,
+      "cf": 1.0,
+      "origen": "Observación directa: el envase se enjuagó y se dejó secar al sol durante el día.",
+      "clase": "inicial"
+    },
+    "porcentaje_contaminacion": {
+      "valor": 10,
+      "cf": 0.6,
+      "origen": "Estimación de la persona usuaria; no puede ver el interior del envase, por lo que pueden quedar restos del producto.",
+      "clase": "inicial"
+    },
+    "etiqueta_peligro": {
+      "valor": true,
+      "cf": 1.0,
+      "origen": "Etiqueta del fabricante con el símbolo de calavera y la advertencia de toxicidad.",
+      "clase": "inicial"
+    }
+  }
+}

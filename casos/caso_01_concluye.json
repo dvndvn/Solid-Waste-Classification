@@ -1,0 +1,30 @@
+{
+  "caso": "Hojas de papel de oficina descartadas en una oficina",
+  "rol": "concluye",
+  "hechos": {
+    "material": {
+      "valor": "papel",
+      "cf": 1.0,
+      "origen": "Identificado directamente por la persona que separa los residuos, que vio las hojas sueltas antes de botarlas.",
+      "clase": "inicial"
+    },
+    "esta_seco": {
+      "valor": true,
+      "cf": 0.95,
+      "origen": "Revisado al tacto por la persona usuaria; no se descarta algo de humedad ambiental en la parte inferior del montón.",
+      "clase": "inicial"
+    },
+    "porcentaje_contaminacion": {
+      "valor": 5,
+      "cf": 0.8,
+      "origen": "Estimación visual de la persona usuaria sobre la superficie con manchas de café; no es una medición exacta.",
+      "clase": "inicial"
+    },
+    "etiqueta_peligro": {
+      "valor": false,
+      "cf": 1.0,
+      "origen": "Observación directa: las hojas no tienen etiquetas ni símbolos de peligro.",
+      "clase": "inicial"
+    }
+  }
+}

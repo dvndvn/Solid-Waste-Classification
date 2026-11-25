@@ -1,0 +1,30 @@
+{
+  "caso": "Camiseta de algodón desgastada en un hogar",
+  "rol": "no_concluye",
+  "hechos": {
+    "material": {
+      "valor": "textil",
+      "cf": 0.85,
+      "origen": "Etiqueta de composición de la prenda, parcialmente borrada por el uso; la persona usuaria cree que es algodón.",
+      "clase": "inicial"
+    },
+    "esta_seco": {
+      "valor": true,
+      "cf": 1.0,
+      "origen": "Observación directa: la prenda salió de un armario y está completamente seca.",
+      "clase": "inicial"
+    },
+    "porcentaje_contaminacion": {
+      "valor": 10,
+      "cf": 0.8,
+      "origen": "Estimación visual de la persona usuaria sobre manchas en el cuello y las mangas.",
+      "clase": "inicial"
+    },
+    "etiqueta_peligro": {
+      "valor": false,
+      "cf": 1.0,
+      "origen": "Observación directa: la prenda no trae símbolos de peligro.",
+      "clase": "inicial"
+    }
+  }
+}

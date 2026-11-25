@@ -1,0 +1,244 @@
+{
+  "nombre": "Sistema experto para la clasificación de residuos sólidos",
+  "reglas": [
+    {
+      "id": "r01",
+      "prioridad": 95,
+      "cf": 0.95,
+      "si": [
+        [
+          "material",
+          "==",
+          "pila"
+        ]
+      ],
+      "entonces": [
+        "clasificacion_residuo",
+        "peligroso"
+      ],
+      "porque": "Las pilas y baterías usadas contienen metales pesados y electrolitos que contaminan el suelo y el agua, por lo que nunca deben mezclarse con los residuos comunes."
+    },
+    {
+      "id": "r02",
+      "prioridad": 95,
+      "cf": 0.9,
+      "si": [
+        [
+          "material",
+          "==",
+          "bombillo_fluorescente"
+        ]
+      ],
+      "entonces": [
+        "clasificacion_residuo",
+        "peligroso"
+      ],
+      "porque": "Los bombillos fluorescentes contienen mercurio, que se libera si el vidrio se rompe, y requieren un manejo posconsumo especial."
+    },
+    {
+      "id": "r03",
+      "prioridad": 90,
+      "cf": 0.85,
+      "si": [
+        [
+          "etiqueta_peligro",
+          "==",
+          true
+        ]
+      ],
+      "entonces": [
+        "clasificacion_residuo",
+        "peligroso"
+      ],
+      "porque": "Un envase con símbolo de peligro (tóxico, inflamable o corrosivo) puede conservar restos de su contenido, y el experto no lo trata como residuo común ni aprovechable aunque su material sea reciclable."
+    },
+    {
+      "id": "r04",
+      "prioridad": 70,
+      "cf": 0.9,
+      "si": [
+        [
+          "material",
+          "==",
+          "restos_comida"
+        ]
+      ],
+      "entonces": [
+        "clasificacion_residuo",
+        "organico"
+      ],
+      "porque": "Los restos de comida se descomponen de forma natural y pueden convertirse en compost si se mantienen separados de otros residuos."
+    },
+    {
+      "id": "r05",
+      "prioridad": 60,
+      "cf": 0.8,
+      "si": [
+        [
+          "material",
+          "==",
+          "papel"
+        ],
+        [
+          "esta_seco",
+          "==",
+          true
+        ],
+        [
+          "porcentaje_contaminacion",
+          "<=",
+          20
+        ]
+      ],
+      "entonces": [
+        "clasificacion_residuo",
+        "reciclable"
+      ],
+      "porque": "El papel limpio y seco conserva sus fibras y puede reciclarse; la humedad y la grasa las degradan y dañan todo el lote."
+    },
+    {
+      "id": "r06",
+      "prioridad": 55,
+      "cf": 0.75,
+      "si": [
+        [
+          "material",
+          "==",
+          "carton"
+        ],
+        [
+          "esta_seco",
+          "==",
+          true
+        ],
+        [
+          "porcentaje_contaminacion",
+          "<=",
+          20
+        ]
+      ],
+      "entonces": [
+        "clasificacion_residuo",
+        "reciclable"
+      ],
+      "porque": "El cartón limpio y seco se recupera con facilidad, aunque el experto confía algo menos que en el papel porque suele traer cintas y pegantes."
+    },
+    {
+      "id": "r07",
+      "prioridad": 50,
+      "cf": 0.7,
+      "si": [
+        [
+          "material",
+          "==",
+          "plastico"
+        ],
+        [
+          "porcentaje_contaminacion",
+          "<=",
+          30
+        ]
+      ],
+      "entonces": [
+        "clasificacion_residuo",
+        "reciclable"
+      ],
+      "porque": "El plástico con poca suciedad puede reciclarse, pero la variedad de resinas y los restos de contenido hacen que la certeza sea moderada."
+    },
+    {
+      "id": "r08",
+      "prioridad": 50,
+      "cf": 0.85,
+      "si": [
+        [
+          "material",
+          "==",
+          "vidrio"
+        ],
+        [
+          "porcentaje_contaminacion",
+          "<=",
+          30
+        ]
+      ],
+      "entonces": [
+        "clasificacion_residuo",
+        "reciclable"
+      ],
+      "porque": "El vidrio con poca suciedad se recicla casi sin pérdida de calidad y se puede fundir una y otra vez."
+    },
+    {
+      "id": "r09",
+      "prioridad": 50,
+      "cf": 0.8,
+      "si": [
+        [
+          "material",
+          "==",
+          "metal"
+        ],
+        [
+          "porcentaje_contaminacion",
+          "<=",
+          30
+        ]
+      ],
+      "entonces": [
+        "clasificacion_residuo",
+        "reciclable"
+      ],
+      "porque": "Los metales como latas y envases de aluminio o acero se funden y reutilizan con facilidad si no están muy sucios."
+    },
+    {
+      "id": "r10",
+      "prioridad": 55,
+      "cf": 0.9,
+      "si": [
+        [
+          "material",
+          "==",
+          "papel_higienico"
+        ]
+      ],
+      "entonces": [
+        "clasificacion_residuo",
+        "no_aprovechable"
+      ],
+      "porque": "El papel higiénico usado está contaminado con residuos biológicos y sus fibras son demasiado cortas, así que no es aprovechable."
+    },
+    {
+      "id": "r11",
+      "prioridad": 45,
+      "cf": 0.7,
+      "si": [
+        [
+          "material",
+          "==",
+          "icopor"
+        ]
+      ],
+      "entonces": [
+        "clasificacion_residuo",
+        "no_aprovechable"
+      ],
+      "porque": "El icopor usado casi no se recicla en la práctica por su bajo peso y su suciedad, y en la mayoría de los sistemas de recolección se trata como residuo no aprovechable."
+    },
+    {
+      "id": "r12",
+      "prioridad": 40,
+      "cf": 0.65,
+      "si": [
+        [
+          "porcentaje_contaminacion",
+          ">",
+          60
+        ]
+      ],
+      "entonces": [
+        "clasificacion_residuo",
+        "no_aprovechable"
+      ],
+      "porque": "Un residuo cubierto en más de la mitad por grasa o comida pierde su valor de reciclaje, aunque su material sea aprovechable."
+    }
+  ]
+}
